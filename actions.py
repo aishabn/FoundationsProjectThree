@@ -10,6 +10,8 @@ myself = Person(my_name, my_bio, my_age)
 def introduction():
     print("Hello, %s. Welcome to our portal." % my_name)
 
+
+
 def options():
     # your code goes here!
 
@@ -29,7 +31,22 @@ def create_club():
 
     new_club = Club(club_name, des)
 
-    return new_club
+    print("Enter the numbers of the people you would like to recruit (-1 to stop)")
+            
+    counter = 1
+    for i in population:
+        print ("[%s] %s \n" % (counter, i.name))
+        counter+=1
+
+
+    inpt = input()
+    while inpt != '-1':
+        num = int(inpt)
+        new_member = population[(num-1)].name
+        new_club.recruit_member(new_member)
+        inpt = input()
+
+    print ("Here's your club: \n %s \n %s \n" %(new_club.name, new_club.description))
     
 
 def view_clubs():
@@ -73,21 +90,22 @@ def application():
     
 
     if op == '1':
-        new_club = create_club()
+        create_club()
+        # new_club = create_club()
             
-        print("Enter the numbers of the people you would like to recruit (-1 to stop)")
+        # print("Enter the numbers of the people you would like to recruit (-1 to stop)")
             
-        counter = 1
-        for i in population:
-            print ("[%s] %s \n" % (counter, i.name))
-            counter+=1
+        # counter = 1
+        # for i in population:
+        #     print ("[%s] %s \n" % (counter, i.name))
+        #     counter+=1
 
-        inpt = input()
-        while inpt != '-1':
-            new_club.recruit_member(inpt)
-            inpt = input()
+        # inpt = input()
+        # while inpt != '-1':
+        #     new_club.recruit_member(population[inpt-1])
+        #     inpt = input()
 
-        print ("Here's your club: \n %s \n %s \n" %(new_club.name, new_club.description))
+        # print ("Here's your club: \n %s \n %s \n" %(new_club.name, new_club.description))
 
     elif op == '2':
         view_clubs()
