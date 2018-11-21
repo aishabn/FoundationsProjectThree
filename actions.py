@@ -45,7 +45,7 @@ def view_club_members(clb):
     # your code goes here!
 
     for c in clubs:
-        if c.name == clb.name:
+        if c.name == clb:
             c.print_member_list()
     	
     
@@ -55,10 +55,13 @@ def join_clubs():
 
 
     inpt = input("Enter the name of the club you'd like to join: ")
-    club_name = inpt.name
-    club_name.recruit_member(my_name)
+    club_name = inpt
 
-    print (" %s just joined %s!" %(my_name.name, club_name.name))
+    for c in clubs:
+        if c.name == inpt:
+            club_name.recruit_member(my_name)
+
+    print (" %s just joined %s!" %(my_name, club_name))
     
 
 def application():
@@ -97,7 +100,7 @@ def application():
         print ("Enter the name of the club whose members you'd like to see: ")
         inpt = input()
 
-        iew_club_members(inpt)
+        view_club_members(inpt)
 
     else:
         if op == '-1':
