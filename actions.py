@@ -65,39 +65,43 @@ def application():
     introduction()
     # your code goes here!
     op = options()
-    while op != '-1':
+    
 
-        if op == '1':
-            new_club = create_club()
+    if op == '1':
+        new_club = create_club()
             
-            print("Enter the numbers of the people you would like to recruit (-1 to stop)")
+        print("Enter the numbers of the people you would like to recruit (-1 to stop)")
             
-            counter = 1
-            for i in population:
-                print ("[%s] %s \n" % (counter, i.name))
-                counter+=1
+        counter = 1
+        for i in population:
+            print ("[%s] %s \n" % (counter, i.name))
+            counter+=1
 
-            inpt = input()
-            while inpt != '-1':
-                new_club.recruit_member(inpt)
-                inpt = input()
-
-            print ("Here's your club: \n %s \n %s \n" %(new_club.name, new_club.description))
-            view_club_members(new_club)
-
-        elif op == '2':
-            view_clubs()
-            join_clubs()
-
-        elif op == '3':
-            view_clubs()
-
-        elif op == '4':
-            view_clubs()
-            print ("Enter the name of the club whose members you'd like to see: ")
+        inpt = input()
+        while inpt != '-1':
+            new_club.recruit_member(inpt)
             inpt = input()
 
-            view_club_members(inpt)
+        print ("Here's your club: \n %s \n %s \n" %(new_club.name, new_club.description))
+        view_club_members(new_club)
+
+    elif op == '2':
+        view_clubs()
+        join_clubs()
+
+    elif op == '3':
+        view_clubs()
+
+    elif op == '4':
+        view_clubs()
+        print ("Enter the name of the club whose members you'd like to see: ")
+        inpt = input()
+
+        iew_club_members(inpt)
+
+    else:
+        if op == '-1':
+            print ("END")
 
     
         
