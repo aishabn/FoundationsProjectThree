@@ -41,11 +41,13 @@ def view_clubs():
     
     
 
-def view_club_members(clb):
+def view_club_members():
     # your code goes here!
+    print ("Enter the name of the club whose members you'd like to see: ")
+    inpt = input()
 
     for c in clubs:
-        if c.name == clb:
+        if c.name == inpt:
             c.print_member_list()
     	
     
@@ -86,7 +88,6 @@ def application():
             inpt = input()
 
         print ("Here's your club: \n %s \n %s \n" %(new_club.name, new_club.description))
-        view_club_members(new_club)
 
     elif op == '2':
         view_clubs()
@@ -97,10 +98,7 @@ def application():
 
     elif op == '4':
         view_clubs()
-        print ("Enter the name of the club whose members you'd like to see: ")
-        inpt = input()
-
-        view_club_members(inpt)
+        view_club_members()
 
     else:
         if op == '-1':

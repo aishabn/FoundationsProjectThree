@@ -22,7 +22,7 @@ class Club():
         # your code goes here!
 
         if person not in self.members:
-            self.members.append(person)
+            self.president.append(person)
 
 
     def recruit_member(self, person):
@@ -35,19 +35,18 @@ class Club():
     def print_member_list(self):
         # your code goes here!
 
-        for i in members:
             print ("Members: \n")
-            for person in self.members:
-                if person is self.president:
-                    print("- %s (%s years old, President) - %s" % (person.name, person.age, person.bio)) 
+            for mem in self.members:
+                if mem == self.president:
+                    print("- %s (%s years old, President) - %s" % (mem.name, mem.age, mem.bio)) 
                 else:
-                    print("- %s (%s years old) - %s" % (person.name, person.age, person.bio))
+                    print("- %s (%s years old) - %s" % (mem.name, mem.age, mem.bio))
                 print()
 
             sum_age = 0
             total = len(self.members)
             for person in self.members:
-                sum_age += person.age
+                sum_age += mem.age
 
             avg = sum_age/total
 
